@@ -80,7 +80,7 @@ public class MembroService {
      *                                      encontrado no banco de dados
      */
     public Membro update(Membro membro) throws MembroNaoEncontradoException {
-        Membro membroQueSeraAtualizado = verificaParametro(membro);
+        Membro membroQueSeraAtualizado = checkParam(membro);
         Optional<Membro> membroVindoDoBanco = repository.findById(membroQueSeraAtualizado.getId());
         membroQueSeraAtualizado = membroVindoDoBanco
                 .orElseThrow(() -> new MembroNaoEncontradoException(MENSSAGEM_ERRO_MEMBRO_NAO_ENCONTRADO));
@@ -94,7 +94,7 @@ public class MembroService {
      * @throws IllegalArgumentException Execeção lançada, caso o membro passado seja
      *                                  null
      */
-    private Membro verificaParametro(Membro membro) {
+    private Membro checkParam(Membro membro) {
         Optional<Membro> membroOptional = Optional.ofNullable(membro);
         return membroOptional.orElseThrow(() -> new IllegalArgumentException("Membro não informado"));
     }

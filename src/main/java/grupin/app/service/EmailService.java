@@ -17,8 +17,6 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    private static final String REMETENTE = "pesquisaeinovacaoemfoco@gmail.com";
-
     /**
      * 
      * @param emailModel objeto de email
@@ -27,8 +25,6 @@ public class EmailService {
     public void sendEmail(EmailModel emailModel) {
         try {
             SimpleMailMessage mensagem = new SimpleMailMessage();
-            mensagem.setFrom(emailModel.getDestinario());
-            mensagem.setTo(REMETENTE);
             mensagem.setReplyTo(emailModel.getDestinario());
             mensagem.setSubject(emailModel.getAssunto());
             mensagem.setText(emailModel.getCorpo());
