@@ -45,10 +45,15 @@
 ## Pré-requisitos
 
 :warning: [Java 17](https://jdk.java.net/17/)
+
 :warning: [Spring boot](https://start.spring.io/)
+
 :warning: [Lombok](https://projectlombok.org/setup/maven)
+
 :warning: [Spring-Data-JPA](https://docs.spring.io/spring-data/jpa/docs/2.5.6/reference/html/#dependencies)
+
 :warning: [Spring-boot-started-email](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail/2.5.6)
+
 :warning: [H2-database](http://www.h2database.com/html/build.html#maven2)
 
 ## Como rodar a aplicação :arrow_forward:
