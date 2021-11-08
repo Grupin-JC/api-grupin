@@ -18,16 +18,32 @@ public class UsuarioService {
 
     private static final String MENSAGEM_ERRO_USUARIO_NAO_ENCONTRADO = "Usuário não encontrado!";
 
+    /**
+     * 
+     * @param usuario Objeto opcional (null ou não)
+     * @return usuário salvo
+     */
     public Usuario create(Usuario usuario) {
         Optional<Usuario> usuarioOptional = Optional.ofNullable(usuario);
         usuario = usuarioOptional.orElseThrow(() -> new IllegalArgumentException("Usuário inválido"));
         return repository.save(usuario);
     }
 
+    /**
+     * 
+     * @return lista de todos os usuários presentes no banco de dados
+     */
     public List<Usuario> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * 
+     * @param id Identificação do usuário
+     * @return usuário específico
+     * @throws UsuarioNaoEncontradoException Exceção lançada, caso o usuário não
+     *                                       seja encontrado no banco de dados
+     */
     public Usuario get(int id) throws UsuarioNaoEncontradoException {
         Optional<Usuario> findById = repository.findById(id);
         Usuario usuario = findById
@@ -35,6 +51,12 @@ public class UsuarioService {
         return usuario;
     }
 
+    /**
+     * 
+     * @param usuario Objeto opcional (null ou não)
+     * @return usuário atualizado
+     * @throws UsuarioNaoEncontradoException
+     */
     public Usuario update(Usuario usuario) throws UsuarioNaoEncontradoException {
         Optional<Usuario> ofNullable = Optional.ofNullable(usuario);
         usuario = ofNullable.orElseThrow(() -> new IllegalArgumentException("Membro inválido"));
@@ -47,6 +69,13 @@ public class UsuarioService {
         return repository.save(usuarioAtualizado);
     }
 
+    /**
+     * 
+     * @param id Identificação do usuário
+     * @return Usuário específico
+     * @throws UsuarioNaoEncontradoException Exceção lançada, caso não encontre o
+     *                                       usuário no banco de dados
+     */
     public Usuario delete(int id) throws UsuarioNaoEncontradoException {
         Usuario usuarioDeletado = repository.findById(id)
                 .orElseThrow(() -> new UsuarioNaoEncontradoException(MENSAGEM_ERRO_USUARIO_NAO_ENCONTRADO));
