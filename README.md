@@ -118,3 +118,4 @@ Copyright :copyright: 2021 - Grupin-JC
 - [x] CRUD de projetos
 - [x] CRUD de categorias
 - [x] CRUD de membros
+
