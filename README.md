@@ -64,10 +64,6 @@ No terminal, clone o projeto:
 git clone https://github.com/Grupin-JC/api-grupin
 ```
 
-...
-
-Coloque um passo a passo para rodar a sua aplicação. **Dica: clone o próprio projeto e verfique se o passo a passo funciona**
-
 ## Casos de Uso
 
 Para ver sobre os casos de uso, use o link a abaixo:
@@ -118,4 +114,3 @@ Copyright :copyright: 2021 - Grupin-JC
 - [x] CRUD de projetos
 - [x] CRUD de categorias
 - [x] CRUD de membros
-
