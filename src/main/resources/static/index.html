@@ -16,6 +16,37 @@
             color: white;
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
         }
+        
+        .card {
+            max-width: 300px;
+        }
+        
+        .btn {
+            background-color: #e61073;
+            color: white;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            border: 1px solid #e61073;
+            color: #e61073;
+        }
+        
+        .card {
+            display: flex;
+            flex-basis: 28.8%;
+            margin: 0 20px;
+            margin-top: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-text {
+            text-align: justify;
+        }
+        
+        .disabled {
+            background-color: grey;
+        }
     </style>
 </head>
 
@@ -23,6 +54,65 @@
     <header class="header d-flex justify-content-center align-items-center font-monospace">
         Painel administrativo
     </header>
+
+    <main class="container">
+        <section class="container-fluid d-flex flex-row flex-wrap justify-content-center">
+            <div class="card">
+                <div class="card-header">
+                    Recurso ADMIN
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">CRUD Membro</h5>
+                    <p class="card-text">Nessa página você pode salvar, deletar, atualizar ou elaborar consultas de todos os membros do projeto de pesquisa.</p>
+                    <a href="#" class="btn">ir para página</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Recurso ADMIN
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">CRUD Categoria</h5>
+                    <p class="card-text">Nessa página você pode salvar, deletar, atualizar ou elaborar consultas de todas as categorias de projetos feitos.</p>
+                    <a href="#" class="btn">ir para página</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Recurso ADMIN
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">CRUD Projeto</h5>
+                    <p class="card-text">Nessa página você pode salvar, deletar, atualizar ou elaborar consultas de todos os projetos dispostos.</p>
+                    <a href="#" class="btn">ir para página</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Recurso Global
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gerenciamento de usuários</h5>
+                    <p class="card-text">Nessa página você pode gerenciar todas as pessoas que estão com o email cadastrado para a newslleter.</p>
+                    <a href="#" class="btn">ir para página</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Recurso ADMIN
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Gerenciamento de contatos</h5>
+                    <p class="card-text">Nessa página você pode gerenciar os emails enviados e recebidos</p>
+                    <a href="#" class="btn disabled">A ser implementado</a>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
