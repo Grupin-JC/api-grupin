@@ -1,0 +1,55 @@
+.header {
+    background-color: #251030;
+    min-height: 60px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.h1 {
+    color: #251030;
+}
+
+.title-section::after {
+    content: "";
+    height: 10px;
+    width: 100px;
+    background-color: #e61073;
+}
+
+.line {
+    margin-top: -3px;
+    border: 1.5px solid #e61073;
+}
+
+.card {
+    max-width: 300px;
+}
+
+.btn {
+    background-color: #e61073;
+    color: white;
+}
+
+.btn:hover {
+    background-color: transparent;
+    border: 1px solid #e61073;
+    color: #e61073;
+}
+
+.card {
+    display: flex;
+    flex-basis: 28.8%;
+    margin: 0 20px;
+    margin-top: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.disabled {
+    background-color: grey;
+}
