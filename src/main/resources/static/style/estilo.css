@@ -27,17 +27,6 @@
     max-width: 300px;
 }
 
-.btn {
-    background-color: #e61073;
-    color: white;
-}
-
-.btn:hover {
-    background-color: transparent;
-    border: 1px solid #e61073;
-    color: #e61073;
-}
-
 .card {
     display: flex;
     flex-basis: 28.8%;
