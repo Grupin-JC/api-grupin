@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.lang.NonNull;
 
+import grupin.app.dto.CategoriaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,4 +34,8 @@ public class Categoria implements Serializable {
     @NonNull
     private String nome;
 
+    public Categoria(CategoriaDTO categoriaDTO) {
+        this.id = categoriaDTO.getId();
+        this.nome = categoriaDTO.getNome();
+    }
 }

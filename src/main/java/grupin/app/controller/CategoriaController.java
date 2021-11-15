@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import grupin.app.dto.CategoriaDTO;
 import grupin.app.exception.CategoriaNaoEncontradaExeception;
 import grupin.app.model.Categoria;
 import grupin.app.service.CategoriaService;
@@ -46,8 +47,9 @@ public class CategoriaController {
     @ResponseBody
     @PostMapping("/create")
     @Operation(summary = "Salva uma categoria no banco de dados", responses = {
-            @ApiResponse(description = "Categoria salva com sucesso", responseCode = "200", content = @Content) })
-    public ResponseEntity<Categoria> create(@RequestBody Categoria categoria) {
+            @ApiResponse(description = "Categoria salva com sucesso", responseCode = "201", content = @Content) })
+    public ResponseEntity<Categoria> create(@RequestBody CategoriaDTO categoriaDTO) {
+        var categoria = new Categoria(categoriaDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(categoria));
     }
 

@@ -94,15 +94,19 @@
         btnSuccess.addEventListener('click', async() => {
             const nome = document.getElementById('categoria-nome').value;
 
+            const objeto = JSON.stringify({
+                "nome": nome
+            });
+
+            console.log(objeto);
+
             await fetch('../api/categorias/create', {
                     method: 'post',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        "nome ": nome
-                    })
+                    body: objeto
                 }).then(response => console.log(response.json()))
                 .catch(e => console.log(e));
         })
