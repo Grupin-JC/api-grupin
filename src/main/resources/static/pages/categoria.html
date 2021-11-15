@@ -38,7 +38,7 @@
                     <form class="m-2" action="" method="post">
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">id</span>
-                            <input type="number" class="form-control" placeholder="ex.: 1" aria-label="Category" aria-describedby="addon-wrapping">
+                            <input type="number" class="form-control" placeholder="ex.: 1" aria-label="Category" aria-describedby="addon-wrapping" id="id-categoria">
                         </div>
                         <div class="input-group flex-nowrap mt-2">
                             <span class="input-group-text" id="addon-wrapping">Nome</span>
@@ -62,11 +62,11 @@
                     <form class="m-2 " action=" " method="get ">
                         <div class="input-group flex-nowrap ">
                             <span class="input-group-text " id="addon-wrapping ">id</span>
-                            <input type="number " class="form-control " placeholder="ex.: 1 " aria-label="Username " aria-describedby="addon-wrapping ">
+                            <input type="number " class="form-control " placeholder="ex.: 1 " aria-label="Username " aria-describedby="addon-wrapping " id="id-query">
                         </div>
                         <div class="input-group flex-nowrap mt-2 ">
                             <span class="input-group-text " id="addon-wrapping ">Nome</span>
-                            <input type="text " class="form-control " placeholder="ex.: gamificação " aria-label="Username " aria-describedby="addon-wrapping " required=" " />
+                            <input type="text " class="form-control " placeholder="ex.: gamificação " aria-label="Username " aria-describedby="addon-wrapping " required=" " id="nome-query" />
                         </div>
                         <div class="buttons mt-3 ">
                             <button type="button " class="btn btn-primary ">Pesquisar</button>
@@ -92,9 +92,9 @@
         const btnSuccess = document.querySelector('.btn-success');
 
         btnSuccess.addEventListener('click', async() => {
-            const nome = document.getElementById('categoria-nome').value;
+            let nome = document.getElementById('categoria-nome').value;
 
-            const objeto = JSON.stringify({
+            let objeto = JSON.stringify({
                 "nome": nome
             });
 
@@ -109,7 +109,38 @@
                     body: objeto
                 }).then(response => console.log(response.json()))
                 .catch(e => console.log(e));
+        });
+
+        const btnWarning = document.querySelector('.btn-warning');
+
+        btnWarning.addEventListener('click', async() => {
+            let id = document.getElementById('id-categoria').value;
+            let nome = document.getElementById('categoria-nome').value;
+
+            let objeto = JSON.stringify({
+                "id": id,
+                "nome": nome
+            });
+
+            await fetch('../api/categorias/update', {
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: objeto
+            });
         })
+
+        const btnDanger = document.querySelector('.btn-danger');
+
+        btnDanger.addEventListener('click', async() => {
+            let id = document.getElementById('id-categoria').value;
+
+            await fetch('../api/categorias/delete/' + id, {
+                method: 'delete'
+            });
+        });
     </script>
 </body>
 
