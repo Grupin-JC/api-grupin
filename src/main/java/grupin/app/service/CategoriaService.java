@@ -49,7 +49,7 @@ public class CategoriaService {
      * @return Todas as categorias presentes no banco de dados
      */
     public List<Categoria> findAll() {
-        return repository.findAll();
+        return repository.findAll().stream().filter(categoria -> categoria.getId() > 1).toList();
     }
 
     /**
@@ -73,11 +73,12 @@ public class CategoriaService {
      * @throws CategoriaNaoEncontradaExeception Exceção lançada, caso não encontre a
      *                                          categoria no banco de dados
      */
-    
     public Categoria delete(int id) throws CategoriaNaoEncontradaExeception {
         Optional<Categoria> categoriaOpcional = repository.findById(id);
         Categoria categoriaDeletada = categoriaOpcional
                 .orElseThrow(() -> new CategoriaNaoEncontradaExeception(MENSAGEM_ERRO_CATEGORIA_NAO_ENCONTRADA));
+        if (categoriaDeletada.getId() == 1)
+            throw new IllegalArgumentException("Categoria inválida");
         repository.delete(categoriaDeletada);
         return categoriaDeletada;
     }

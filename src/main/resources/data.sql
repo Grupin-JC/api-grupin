@@ -1,3 +1,8 @@
+alter table projeto 
+       add constraint teste 
+       foreign key (categoria_id) 
+       references categoria ON DELETE SET NULL;
+
 INSERT INTO membro(nome,email,foto_src,status, cargo, curso, lattes) 
 VALUES ('Lucas Mateus', 'lucas_jdev1@gmail.com', 'lalala', 'ATIVO', 'VOLUNTARIO', 'informática', '231231');
 
@@ -7,6 +12,7 @@ VALUES ('Carol Jesuíta', 'kkkkkkk@gmail.com', 'lalala', 'ATIVO', 'BOLSISTA', 'i
 INSERT INTO membro(nome,email,foto_src,status, cargo, curso, lattes) 
 VALUES ('Junior Akarleson', 'lucas_jdev2@gmail.com', 'lalala', 'INATIVO', 'VOLUNTARIO', 'eletrotécnica', '3312312');
 
+INSERT INTO categoria(nome) VALUES ('Indefinido');
 INSERT INTO categoria(nome) VALUES ('Gamificação');
 INSERT INTO categoria(nome) VALUES ('Astronomia');
 INSERT INTO categoria(nome) VALUES ('Social');
